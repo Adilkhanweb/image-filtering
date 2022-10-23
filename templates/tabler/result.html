@@ -1,9 +1,9 @@
 {% if object %}
     <div class="mb-3 mt-3">
         <div class="row mb-3">
-            <div class="col-6 mb-3 d-flex align-items-center flex-column"><h3>Uploaded</h3>
+            <div class="col-12 col-sm-6 mb-3 d-flex align-items-center flex-column"><h3>Uploaded</h3>
                 <img src="{{ object.image.url }}" alt="" width="200px"></div>
-            <div class="col-6 mb-3 d-flex align-items-center flex-column"><h3>{{ object.get_action_display }}</h3>
+            <div class="col-12 col-sm-6 mb-3 d-flex align-items-center flex-column"><h3>{{ object.get_action_display }}</h3>
                 <img src="{{ object.filtered_image.url }}" alt="" width="200px"></div>
             <div class="col-12 d-flex align-items-center flex-column">
                 <a href="{{ object.filtered_image.url }}" download class="btn btn-success col-6 mx-auto">
