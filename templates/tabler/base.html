@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta5
+* @link https://tabler.io
+* Copyright 2018-2022 The Tabler Authors
+* Copyright 2018-2022 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Digital Image Processing Assignment 1</title>
+    <!-- CSS files -->
+    <link href="{% static 'tabler/dist/css/tabler.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'tabler/dist/css/tabler-flags.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'tabler/dist/css/tabler-payments.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'tabler/dist/css/tabler-vendors.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'tabler/dist/css/demo.min.css" rel="stylesheet' %}"/>
+</head>
+<body>
+<div class="wrapper">
+    <div class="page-wrapper">
+        <div class="container-narrow">
+            <!-- Page title -->
+            <div class="page-header d-print-none">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h2 class="page-title">
+                            <strong>Digital Image Processing</strong>
+                        </h2>
+                        <h2 class="page-title">
+                            <strong>Assignment 1</strong>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-body">
+            <div class="container-narrow">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/htmx.org@1.7.0"
+        integrity="sha384-EzBXYPt0/T6gxNp0nuPtLkmRpmDBbjg6WmCUZRLXBBwYYmwAUxzlSGej0ARHX0Bo"
+        crossorigin="anonymous"></script>
+<script>
+    document.body.addEventListener('htmx:configRequest', (event) => {
+        event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+    })
+</script>
+<!-- Libs JS -->
+<!-- Tabler Core -->
+<script src="{% static 'tabler/dist/js/tabler.min.js' %}"></script>
+<script src="{% static 'tabler/dist/js/demo.min.js' %}"></script>
+<script src="{% static 'progress_bar.js' %}"></script>
+<script>
+    const progress = document.querySelector(".progress");
+    const bar = document.querySelector(".progress-bar");
+    if (bar.getAttribute('aria-valuenow') === "0" || bar.getAttribute('aria-valuenow') === "100") {
+        progress.style.display = 'none';
+    } else {
+        progress.style.display = 'block';
+    }
+</script>
+</body>
+</html>
